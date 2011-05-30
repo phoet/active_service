@@ -1,8 +1,8 @@
-== Common
-
 Status: http://stillmaintained.com/phoet/active_service.png
 
-
+ActiveService is a Rails extension that aims at 
+creating reusable, transactional services in 
+your application to make your code more DRY.
 
 == Installation
 
@@ -10,13 +10,73 @@ With bundler:
 
   # Gemfile
   gem 'active_service'
+  
+  $ bundle install
 
-or
+or directly
 
-  $ gem install active_service
+  $ (sudo) gem install active_service
+
+and initialize
+
+  $ rails generate active_service:install
 
 == Configuration
 
+After running the Rails generator you have a new folder _app/services_
+where you can place your services. This folder is added to the rails load-path automagically.
+
+If you do not like this folder have a look at the default configuration which has been
+generated into an initializer at _config/initializers/actice_service.rb_
+presenting all the possible configurations:
+
+  ActiveService::Configuration.configure do |config|
+    config.path           = 'app/services'
+    config.transactional  = true
+  end
+
 == Usage
 
-== Infos
+Start by generating a service:
+
+  $ rails generate active_service payment_service
+
+This will generate an empty stub for you holding all the possible service options:
+
+  # app/services/payment_service.rb
+  class PaymentService < ActiveService::Base
+    transactional true
+    
+    def do_something_important
+      # your important code that should not fuck up comes here
+    end
+  end
+
+If you want to use this service in your controller, just add a makro for it:
+
+  # app/controllers/
+  class PaymentController < ApplicationController
+    service :payment
+    
+    def crazy_payment_action
+      if payment.do_something_important
+        flash.info 'epic win!'
+      else
+        redirect_to :back, :error => 'epic fail!'
+      end
+    end
+  end
+
+This makro is also available in the services themselves, so that you can nest them.
+
+== Good to know
+
+You can always disable the transactional behavior, which might be useful when nesting services,
+by using the bang-style method name:
+
+  service.do_something_important!
+
+ActiveService will wrap all the methods that you define in your service.
+If you want to execute them directly you can do this by prefixing them:
+
+  service.__do_something_important

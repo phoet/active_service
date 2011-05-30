@@ -1,0 +1,22 @@
+== Common
+
+Status: http://stillmaintained.com/phoet/active_service.png
+
+
+
+== Installation
+
+With bundler:
+
+  # Gemfile
+  gem 'active_service'
+
+or
+
+  $ gem install active_service
+
+== Configuration
+
+== Usage
+
+== Infos

@@ -1,1 +1,1 @@
-script: "ruby -Ilib -Itest test/all.rb"
+script: "rake"

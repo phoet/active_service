@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  amount: 1.5
+  provider: MyString
+  comment: MyText
+
+two:
+  amount: 1.5
+  provider: MyString
+  comment: MyText

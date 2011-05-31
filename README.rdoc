@@ -59,7 +59,7 @@ If you want to use this service in your controller, just add a makro for it:
     service :payment
     
     def crazy_payment_action
-      if payment.do_something_important
+      if services(:payment).do_something_important
         flash.info 'epic win!'
       else
         redirect_to :back, :error => 'epic fail!'

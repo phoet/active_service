@@ -4,6 +4,9 @@ class NupsService < ActiveService::Base
   def testo
     "pesto"
   end
+  def uschi(muschi, sushi)
+    "#{muschi} #{sushi}"
+  end
 end
 class DupsService < ActiveService::Base; end
 class WupsService < ActiveService::Base; end
@@ -45,6 +48,14 @@ module ActiveService
       
       it "should call the original method as expected" do
         @service.testo.should eql('pesto')
+      end
+      
+      it "should fail with wrong arity" do
+        lambda {@service.testo('bad_param')}.should raise_error
+      end
+      
+      it "should handle arity right" do
+        @service.uschi('a', 'b').should eql('a b')
       end
     end
   end

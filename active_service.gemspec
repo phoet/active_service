@@ -6,11 +6,11 @@ Gem::Specification.new do |s|
   s.name        = "active_service"
   s.version     = ActiveService::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["TODO: Write your name"]
-  s.email       = ["TODO: Write your email address"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.authors     = ["Peter Schröder"]
+  s.email       = ["ps@nofail.de"]
+  s.homepage    = "http://nofail.de"
+  s.summary     = %q{Transactional services for Rails}
+  s.description = %q{ActiveService is a Rails extension that aims at creating reusable, transactional services in your application to make your code more DRY. }
 
   s.rubyforge_project = "active_service"
 

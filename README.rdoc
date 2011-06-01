@@ -1,4 +1,4 @@
-Status: http://stillmaintained.com/phoet/active_service.png
+Status: http://stillmaintained.com/phoet/active_service.png http://travis-ci.org/phoet/active_service.png
 
 ActiveService is a Rails extension that aims at 
 creating reusable, transactional services in 

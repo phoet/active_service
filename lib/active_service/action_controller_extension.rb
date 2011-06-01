@@ -16,7 +16,10 @@ module ActionService
       def service(*names)
         @services ||= {}
         @service_names ||= []
-        names.each{|name| @services[name] = 'blupp'; @service_names << name }
+        names.each do |name| 
+          @services[name] = "#{name.to_s.humanize}Service".constantize.new
+          @service_names << name 
+        end
       end
     end
   end

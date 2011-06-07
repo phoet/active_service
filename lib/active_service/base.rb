@@ -1,3 +1,5 @@
+require 'active_record'
+
 module ActiveService
   class Base
     def self.method_added(method)
@@ -5,11 +7,7 @@ module ActiveService
       return if name =~ /__.*/ || name =~ /.*!/
       return if (@__handled_names ||= []).include?(method)
       @__handled_names << method
-      
-      puts "*" * 100
-      puts name
       arity = instance_method(method).arity
-      puts "arity is #{arity}"
       old_name = "__#{name}"
       class_eval "alias_method :#{old_name}, :#{name}"
       class_eval "alias_method :#{name}!, :#{name}"
@@ -20,11 +18,11 @@ module ActiveService
       else
         ["#{name}(*params)", "#{old_name}(*params)"]
       end
-      puts "new #{new_method_definition}"
-      puts "old #{old_method_definition}"
       class_eval <<-EOF
         def #{new_method_definition}
-          #{old_method_definition}
+          ActiveRecord::Base.transaction do
+            #{old_method_definition}
+          end
         end
       EOF
     end

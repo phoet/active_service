@@ -80,3 +80,11 @@ ActiveService will wrap all the methods that you define in your service.
 If you want to execute them directly you can do this by prefixing them:
 
   service.__do_something_important
+
+Nested Transactions are NOT supported!
+
+== More on Transactions
+
+Have a look into the API-Docs[http://api.rubyonrails.org/classes/ActiveRecord/Transactions/ClassMethods.html]
+for more information about Transactions.
+

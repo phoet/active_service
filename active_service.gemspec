@@ -22,6 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency('rake', '~> 0.8.7')
   s.add_dependency('rails', '~> 3.0.0')
   
+  s.add_development_dependency('sqlite3-ruby', '~> 1.3.3')
   s.add_development_dependency('rspec', '~> 2.6.0')
   s.add_development_dependency('fuubar', '~> 0.0.4')
 end

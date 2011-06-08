@@ -24,15 +24,15 @@ module ActiveService
       end
 
       it "should have a proxy-method" do
-        @service.respond_to?(:__testo).should be_true
+        @service.respond_to?(:__some_method).should be_true
       end
 
       it "should have a no transactional-method" do
-        @service.respond_to?(:testo!).should be_true
+        @service.respond_to?(:some_method!).should be_true
       end
 
       it "should call the original method as expected" do
-        @service.testo.should eql('pesto')
+        @service.some_method.should eql('some_value')
       end
 
       it "should fail with wrong arity" do
@@ -40,7 +40,11 @@ module ActiveService
       end
 
       it "should handle arity right" do
-        @service.uschi('a', 'b').should eql('a b')
+        @service.with_params('a', 'b').should eql('a b')
+      end
+
+      it "should handle blocks" do
+        @service.with_block('a', 'b'){ "nups" }.should eql('["a", "b"]_nups')
       end
 
       context "transaction" do

@@ -1,9 +1,8 @@
-$:.unshift File.join(File.dirname(__FILE__),'..','..','lib')
 require 'rspec'
 require 'active_service'
-require 'pp'
-require 'user'
 
+# load test-data
+require 'user'
 dbconfig = YAML::load(File.open('db/database.yml'))
 ActiveRecord::Base.establish_connection(dbconfig)
 
@@ -11,12 +10,16 @@ RSpec.configure do |c|
   c.mock_with :rspec
 end
 
+# test classes
 class NupsService < ActiveService::Base
-  def testo
-    "pesto"
+  def some_method
+    "some_value"
   end
-  def uschi(muschi, sushi)
+  def with_params(muschi, sushi)
     "#{muschi} #{sushi}"
+  end
+  def with_block(*params)
+    "#{params.inspect}_#{yield}"
   end
   def transactional_stuff
     User.create! :name => 'muschi'

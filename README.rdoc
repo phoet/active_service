@@ -19,6 +19,7 @@ or directly
 
 and initialize
 
+  $ rails generate # see all generators
   $ rails generate active_service:install
 
 == Configuration
@@ -31,8 +32,7 @@ generated into an initializer at _config/initializers/actice_service.rb_
 presenting all the possible configurations:
 
   ActiveService::Configuration.configure do |config|
-    config.path           = 'app/services'
-    config.transactional  = true
+    config.path = 'app/services'
   end
 
 == Usage

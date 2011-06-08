@@ -1,5 +1,4 @@
 == TODO
 
-* add script initializer
-* add app/services to load_path
-* add railties for it
+* discover better way to add app/services to load_path
+* discover better way to autoload stuff

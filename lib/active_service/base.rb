@@ -20,7 +20,7 @@ module ActiveService
       end
       class_eval <<-EOF
         def #{new_method_definition}
-          ActiveRecord::Base.transaction do
+          ::ActiveRecord::Base.transaction do
             #{old_method_definition}
           end
         end

@@ -1,5 +1,5 @@
 require "bundler"
-require "rake/rdoctask"
+require "rdoc/task"
 require "rspec/core/rake_task"
 require 'active_record'
 require 'yaml'
@@ -19,11 +19,11 @@ task :environment do
 end
 
 RSpec::Core::RakeTask.new do |t|
-  t.rspec_opts = ["--format Fuubar", "--color", "-r ./spec/spec_helper.rb"]
+  t.rspec_opts = ["--format Fuubar", "--color"]
   t.pattern = 'spec/**/*_spec.rb'
 end
 
-Rake::RDocTask.new(:rdoc_dev) do |rd|
+RDoc::Task.new do |rd|
   rd.rdoc_files.include(File.readlines('.document').map(&:strip))
   rd.options + ['-a', '--inline-source', '--charset=UTF-8']
 end

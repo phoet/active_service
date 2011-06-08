@@ -25,4 +25,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency('sqlite3-ruby', '~> 1.3.3')
   s.add_development_dependency('rspec', '~> 2.6.0')
   s.add_development_dependency('fuubar', '~> 0.0.4')
+  s.add_development_dependency('rdoc', '~> 3.6.1')
 end

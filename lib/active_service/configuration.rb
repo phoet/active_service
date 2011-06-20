@@ -1,30 +1,19 @@
 module ActiveService
   class Configuration
+    
+    CONFIG_FILE = "config/active_service.yml"
+    DEFAULTS = {'path' => 'app/services'}
+    
     class << self
-      attr_accessor :path
-
-      def configure(options={})
-        init_config
-        if block_given?
-          yield self
-        else
-          options.each do |key, value|
-            send(:"#{key}=", value)
-          end
-        end
-        self
+      def path
+        conf['path']
       end
-
-      def reset
-        init_config(true)
-      end
-
+      
       private()
 
-      def init_config(force=false)
-        return if @init && !force
-        @init           = true
-        @path           = 'app/services'
+      def conf
+        return DEFAULTS unless File.exist?(CONFIG_FILE)
+        File.open(CONFIG_FILE) { |file| YAML.load(file) }
       end
     end
   end

@@ -17,29 +17,11 @@ or directly
 
   $ (sudo) gem install active_service
 
-and initialize
-
-  $ rails generate # see all generators
-  $ rails generate active_service:install
-
-== Configuration
-
-After running the Rails generator you have a new folder _app/services_
-where you can place your services. This folder is added to the rails load-path automagically.
-
-If you do not like this folder have a look at the default configuration which has been
-generated into an initializer at _config/initializers/actice_service.rb_
-presenting all the possible configurations:
-
-  ActiveService::Configuration.configure do |config|
-    config.path = 'app/services'
-  end
-
 == Usage
 
 Start by generating a service:
 
-  $ rails generate active_service payment_service
+  $ rails generate active_service:service payment
 
 This will generate an empty stub for you holding all the possible service options:
 
@@ -82,6 +64,21 @@ If you want to execute them directly you can do this by prefixing them:
   service.__do_something_important
 
 Nested Transactions are NOT supported!
+
+== Configuration
+
+  $ rails generate active_service:confi
+
+After running the Rails generator you have a new folder _app/services_
+where you can place your services. This folder is added to the rails load-path automagically.
+
+If you do not like this folder have a look at the default configuration which has been
+generated into an initializer at _config/initializers/actice_service.rb_
+presenting all the possible configurations:
+
+  ActiveService::Configuration.configure do |config|
+    config.path = 'app/services'
+  end
 
 == More on Transactions
 

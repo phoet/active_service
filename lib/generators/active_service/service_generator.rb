@@ -3,7 +3,7 @@ module ActiveService
     class ServiceGenerator < ::Rails::Generators::NamedBase
       source_root File.expand_path("../../templates", __FILE__)
 
-      desc "Creates an ActiveService class in #{ActiveService::Configuration.path}."
+      desc "Creates an ActiveService class."
       class_option :service
 
       def copy_initializer

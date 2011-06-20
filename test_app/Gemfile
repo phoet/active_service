@@ -6,3 +6,7 @@ gem 'sqlite3'
 gem 'rake', '0.8.7'
 gem 'active_service', :path => '../'
 # gem 'active_service', :git => 'git://github.com/phoet/active_service.git'
+
+group :development do
+  gem 'ruby-debug19'
+end

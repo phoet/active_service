@@ -6,7 +6,7 @@ module ActiveService
       desc "Creates an ActiveService configuration."
       class_option :service
 
-      def copy_initializer
+      def create_config
         create_file "config/active_service.yml", <<-FILE
 path: "lib/services"
         FILE

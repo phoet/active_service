@@ -6,7 +6,7 @@ module ActiveService
       desc "Creates an ActiveService class."
       class_option :service
 
-      def copy_initializer
+      def create_service
         create_file "#{ActiveService::Configuration.path}/#{file_name}_service.rb", <<-FILE
 class #{file_name.camelize}Service
   # your service methods

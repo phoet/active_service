@@ -67,7 +67,7 @@ Nested Transactions are NOT supported!
 
 == Configuration
 
-  $ rails generate active_service:confi
+  $ rails generate active_service:config
 
 After running the Rails generator you have a new folder _app/services_
 where you can place your services. This folder is added to the rails load-path automagically.

@@ -23,12 +23,10 @@ Start by generating a service:
 
   $ rails generate active_service:service payment
 
-This will generate an empty stub for you holding all the possible service options:
+This will generate an empty stub for you in _app/services_:
 
   # app/services/payment_service.rb
   class PaymentService < ActiveService::Base
-    transactional true
-    
     def do_something_important
       # your important code that should not fuck up comes here
     end
@@ -73,12 +71,9 @@ After running the Rails generator you have a new folder _app/services_
 where you can place your services. This folder is added to the rails load-path automagically.
 
 If you do not like this folder have a look at the default configuration which has been
-generated into an initializer at _config/initializers/actice_service.rb_
-presenting all the possible configurations:
+generated into an initializer at _config/active_service.yml_:
 
-  ActiveService::Configuration.configure do |config|
-    config.path = 'app/services'
-  end
+  path: "lib/services"
 
 == More on Transactions
 

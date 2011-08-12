@@ -27,10 +27,4 @@ class NupsService < ActiveService::Base
   end
 end
 
-class DupsService < ActiveService::Base; end
-
-class WupsService < ActiveService::Base; end
-
-class TestController < ActionController::Base
-  service :nups, :dups, :wups
-end
+class TestController < ActionController::Base; end

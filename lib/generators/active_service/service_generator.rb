@@ -7,8 +7,8 @@ module ActiveService
       class_option :service
 
       def create_service
-        create_file "#{ActiveService::Configuration.path}/#{file_name}_service.rb", <<-FILE
-class #{file_name.camelize}Service
+        create_file "app/services/#{file_name}_service.rb", <<-FILE
+class #{file_name.camelize}Service < ActiveService::Base
   # your service methods
 end
         FILE

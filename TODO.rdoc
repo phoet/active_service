@@ -1,4 +1,0 @@
-== TODO
-
-* discover better way to add app/services to load_path
-* discover better way to autoload stuff
